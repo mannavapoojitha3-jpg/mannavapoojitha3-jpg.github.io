@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Poojitha Mannava | AWS Data Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --bg:        #faf6f0;
+  --bg2:       #f5efe6;
+  --bg3:       #ede5d8;
+  --card:      #fefcf8;
+  --card2:     #f9f3ea;
+  --border:    rgba(160,130,100,0.14);
+  --border2:   rgba(160,130,100,0.26);
+  --rose:      #c4765a;
+  --rose2:     #b06248;
+  --rose-dim:  rgba(196,118,90,0.08);
+  --sage:      #7a9e87;
+  --gold:      #c9923a;
+  --gold2:     #b57d28;
+  --text:      #2e2118;
+  --text2:     #6b5242;
+  --muted:     #a08878;
+  --white:     #fefcf8;
+  --nav-h:     68px;
+  --r:         10px;
+  --r2:        16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(ellipse 70% 60% at 15% 10%,rgba(196,118,90,0.055) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 85% 85%,rgba(122,158,135,0.06) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 50% 50%,rgba(201,146,58,0.03) 0%,transparent 70%);}
+body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(160,130,100,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(160,130,100,0.04) 1px,transparent 1px);background-size:48px 48px;}
+
+#home-page,#project-page,#resume-page{position:relative;z-index:1;}
+section{position:relative;z-index:1;padding:100px 6%;}
+.section-inner{margin:0 auto;width:100%;}
+
+.section-label{font-family:'DM Mono',monospace;font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.7rem;}
+.section-label::before{content:'';display:inline-block;width:24px;height:1px;background:var(--rose);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.1rem,3.8vw,3rem);font-weight:600;color:var(--text);letter-spacing:-0.02em;line-height:1.1;margin-bottom:0.9rem;}
+.section-sub{color:var(--text2);max-width:500px;font-size:1rem;line-height:1.8;}
+.section-head{margin-bottom:3.5rem;}
+.divider{width:40px;height:2px;background:linear-gradient(90deg,var(--rose),transparent);margin-top:1rem;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 6%;background:rgba(250,246,240,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:background 0.3s;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.25rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:0.15rem;letter-spacing:-0.01em;}
+.nav-logo span{color:var(--rose);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;font-family:'DM Sans',sans-serif;transition:color 0.2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--rose);transform:scaleX(0);transition:transform 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--rose);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text);transition:0.3s;}
+
+.mobile-menu{position:fixed;inset:0;background:rgba(250,246,240,0.98);z-index:999;backdrop-filter:blur(30px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--text);text-decoration:none;transition:color 0.2s;}
+.mobile-menu a:hover{color:var(--rose);}
+.mobile-close{position:absolute;top:1.5rem;right:6%;font-size:1.5rem;color:var(--muted);cursor:pointer;border:none;background:none;padding:0.5rem;transition:color 0.2s;font-family:'DM Sans',sans-serif;}
+.mobile-close:hover{color:var(--text);}
+
+#home-page{display:block;}
+#project-page{display:none;position:fixed;inset:0;background:var(--bg);z-index:500;overflow-y:auto;padding-top:var(--nav-h);}
+#resume-page{display:none;position:fixed;inset:0;background:var(--bg);z-index:500;overflow-y:auto;padding-top:var(--nav-h);}
+
+#about{min-height:100vh;display:flex;align-items:center;padding-top:calc(var(--nav-h) + 60px);padding-bottom:80px;overflow:hidden;}
+.about-grid{display:grid;grid-template-columns:1fr 460px;gap:5rem;align-items:center;max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;}
+.about-tag{display:inline-flex;align-items:center;gap:0.7rem;background:rgba(196,118,90,0.07);border:1px solid rgba(196,118,90,0.22);color:var(--rose);font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:50px;margin-bottom:1.5rem;}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--rose);animation:pulsedot 2s infinite;}
+@keyframes pulsedot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.4)}}
+h1.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,6.5vw,5.2rem);font-weight:600;color:var(--text);line-height:1.0;letter-spacing:-0.03em;margin-bottom:1.2rem;}
+h1.hero-name .line2{background:linear-gradient(135deg,var(--rose) 0%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;}
+.hero-desc{font-size:1.02rem;color:var(--text2);line-height:1.85;max-width:540px;margin-bottom:2.5rem;}
+.hero-desc strong{color:var(--text);font-weight:600;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+
+.btn-primary{background:var(--rose);color:var(--white);text-decoration:none;padding:0.82rem 2rem;border-radius:var(--r);font-weight:600;font-size:0.9rem;font-family:'DM Sans',sans-serif;transition:all 0.25s;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(196,118,90,0.22);}
+.btn-primary:hover{background:var(--rose2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,118,90,0.35);}
+.btn-outline{background:transparent;color:var(--text);text-decoration:none;padding:0.82rem 2rem;border-radius:var(--r);font-weight:500;font-size:0.9rem;font-family:'DM Sans',sans-serif;border:1px solid var(--border2);transition:all 0.25s;cursor:pointer;}
+.btn-outline:hover{border-color:var(--rose);color:var(--rose);transform:translateY(-2px);background:var(--rose-dim);}
+.btn-resume{background:var(--card);color:var(--gold);text-decoration:none;padding:0.82rem 1.6rem;border-radius:var(--r);font-weight:600;font-size:0.9rem;font-family:'DM Sans',sans-serif;border:1.5px solid rgba(201,146,58,0.35);transition:all 0.25s;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;box-shadow:0 2px 10px rgba(201,146,58,0.1);}
+.btn-resume:hover{border-color:var(--gold);color:var(--gold2);transform:translateY(-2px);background:rgba(201,146,58,0.07);box-shadow:0 6px 20px rgba(201,146,58,0.2);}
+
+.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap;}
+.hero-stat-val{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--text);line-height:1;}
+.hero-stat-label{font-size:0.75rem;color:var(--muted);margin-top:0.25rem;font-weight:400;}
+
+.about-img-wrap{position:relative;}
+.about-img-card{display:flex;flex-direction:column;border-radius:var(--r2);aspect-ratio:3/4;position:relative;}
+.profile-img{position:relative;height:55%;}
+.about-img-card img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:0 2rem 0 2rem;}
+.about-img-badge{margin-top:2.5rem;border:1px solid var(--border2);border-radius:var(--r);}
+.badge-inner{background:var(--card);border-radius:var(--r);padding:1rem 1.2rem;}
+.badge-title{font-weight:600;color:var(--text);font-size:0.88rem;}
+.badge-sub{color:var(--muted);font-size:0.78rem;margin-top:0.2rem;}
+.lab-cards{display:flex;gap:0.75rem;margin-top:2rem;}
+.lab-cards .about-img-badge{flex:1;margin-top:0;overflow:hidden;}
+.lab-cards .badge-img{width:100%;height:90px;object-fit:cover;display:block;border-radius:var(--r) var(--r) 0 0;}
+.social-box{display:flex;justify-content:space-between;margin-top:2.5rem;padding:0 4rem;}
+.social-icon{width:50px;height:50px;background-color:var(--card);display:flex;justify-content:center;align-items:center;text-decoration:none;border-radius:var(--r);border:1px solid var(--border2);transition:all 0.2s;}
+.social-icon:hover{border-color:var(--rose);background:var(--rose-dim);}
+.social-icon:hover i{color:var(--rose);}
+.social-icon i{font-size:20px;color:var(--text2);}
+
+.exp-timeline{display:flex;flex-direction:column;gap:1.5rem;}
+.exp-card{display:flex;gap:2rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:2rem;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;box-shadow:0 2px 12px rgba(160,130,100,0.06);}
+.exp-card:hover{border-color:var(--rose);transform:translateX(4px);box-shadow:0 6px 24px rgba(160,130,100,0.1);}
+.exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--rose),var(--gold));opacity:0;transition:opacity 0.3s;}
+.exp-card:hover::before{opacity:1;}
+.exp-img-box{position:relative;border-radius:var(--r);}
+.exp-img{width:280px;height:100%;object-fit:cover;border-radius:var(--r);}
+.exp-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.4rem;}
+.exp-role{font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;color:var(--text);}
+.exp-date{font-size:0.7rem;font-weight:500;padding:0.28rem 0.85rem;border-radius:50px;background:rgba(196,118,90,0.08);border:1px solid rgba(196,118,90,0.2);color:var(--rose);font-family:'DM Mono',monospace;letter-spacing:0.05em;}
+.exp-org{color:var(--rose);font-size:0.86rem;font-weight:600;margin-bottom:1rem;opacity:0.9;}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:0.55rem;}
+.exp-bullets li{color:var(--text2);font-size:0.9rem;line-height:1.7;padding-left:1.4rem;position:relative;}
+.exp-bullets li::before{content:'';position:absolute;left:0;top:0.68em;width:5px;height:5px;border-radius:50%;background:var(--rose);}
+.exp-bullets li strong{color:var(--text);font-weight:600;}
+.exp-award{display:inline-flex;align-items:center;gap:0.5rem;margin-top:1rem;background:rgba(201,146,58,0.08);border:1px solid rgba(201,146,58,0.25);color:var(--gold);padding:0.4rem 0.9rem;border-radius:8px;font-size:0.8rem;font-weight:600;font-family:'DM Mono',monospace;}
+
+.skills-layout{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin:0 auto;}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:1.6rem;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;gap:0.9rem;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(160,130,100,0.05);}
+.skill-card:hover{border-color:var(--rose);transform:translateY(-4px);box-shadow:0 8px 28px rgba(160,130,100,0.12);}
+.skill-card::after{content:'';position:absolute;top:0;right:0;width:60px;height:60px;background:radial-gradient(circle,rgba(196,118,90,0.07),transparent);pointer-events:none;}
+.skill-icon{width:40px;height:40px;border-radius:9px;background:rgba(196,118,90,0.08);border:1px solid rgba(196,118,90,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;font-size:1.1rem;color:var(--rose);}
+.skill-cat{font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.88rem;color:var(--text);}
+.skill-pills{display:flex;flex-wrap:wrap;gap:0.45rem;}
+.pill{background:var(--bg3);border:1px solid var(--border);color:var(--text2);font-size:0.73rem;font-weight:500;font-family:'DM Mono',monospace;padding:0.28rem 0.75rem;border-radius:5px;transition:all 0.2s;cursor:default;}
+.pill:hover{border-color:var(--rose);color:var(--rose);background:var(--rose-dim);}
+
+.edu-degree{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.25rem;color:var(--text);margin-bottom:0.3rem;}
+.edu-uni{font-weight:600;color:var(--rose);font-size:0.9rem;margin-bottom:0.25rem;}
+.edu-loc{color:var(--muted);font-size:0.82rem;margin-bottom:1rem;}
+.edu-meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem;}
+.edu-badge{display:flex;align-items:center;gap:0.5rem;font-size:0.83rem;font-weight:600;}
+.edu-badge.cgpa{color:var(--gold);}
+.edu-badge.year{color:var(--muted);}
+.edu-courses{font-size:0.86rem;color:var(--text2);line-height:1.7;}
+.edu-courses strong{color:var(--text);}
+
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin:0 auto;}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;cursor:pointer;transition:all 0.3s;display:flex;flex-direction:column;box-shadow:0 2px 12px rgba(160,130,100,0.06);}
+.proj-card:hover{border-color:var(--rose);box-shadow:0 8px 28px rgba(160,130,100,0.12);transform:translateY(-3px);}
+.proj-img{height:250px;overflow:hidden;position:relative;background:var(--bg3);}
+.proj-img img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 0.5s;}
+.proj-card:hover .proj-img img{transform:scale(1.05);}
+.proj-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(254,252,248,0.94) 100%);}
+.proj-img-badges{position:absolute;top:12px;left:12px;display:flex;gap:0.4rem;flex-wrap:wrap;}
+.badge{font-size:0.65rem;font-weight:700;letter-spacing:0.06em;padding:0.22rem 0.6rem;border-radius:4px;font-family:'DM Mono',monospace;}
+.badge-cyan{background:rgba(196,118,90,0.88);color:#fff;}
+.badge-blue{background:rgba(122,158,135,0.88);color:#fff;}
+.badge-gold{background:rgba(201,146,58,0.88);color:#fff;}
+.proj-body{padding:1.4rem;flex:1;display:flex;flex-direction:column;}
+.proj-title{font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.97rem;color:var(--text);margin-bottom:0.6rem;line-height:1.3;}
+.proj-desc{color:var(--text2);font-size:0.85rem;line-height:1.7;margin-bottom:1.1rem;flex:1;}
+.proj-metrics{display:flex;gap:1.2rem;padding:0.9rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:1rem;}
+.proj-metric-val{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.15rem;color:var(--rose);}
+.proj-metric-label{font-size:0.68rem;color:var(--muted);margin-top:0.1rem;font-family:'DM Mono',monospace;}
+.proj-footer{display:flex;align-items:center;justify-content:space-between;}
+.proj-view-btn{font-size:0.8rem;font-weight:600;color:var(--rose);display:flex;align-items:center;gap:0.4rem;font-family:'DM Sans',sans-serif;}
+.proj-view-btn svg{transition:transform 0.2s;}
+.proj-card:hover .proj-view-btn svg{transform:translateX(4px);}
+.proj-period{font-size:0.72rem;color:var(--muted);font-family:'DM Mono',monospace;}
+
+.workshop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin:0 auto;}
+.workshop-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:all 0.3s;cursor:pointer;box-shadow:0 2px 10px rgba(160,130,100,0.05);}
+.workshop-card:hover{border-color:var(--rose);transform:translateY(-4px);box-shadow:0 8px 28px rgba(160,130,100,0.12);}
+.workshop-img{height:250px;overflow:hidden;position:relative;background:var(--bg3);}
+.workshop-img img{width:100%;height:100%;object-position:top;object-fit:cover;transition:transform 0.5s;}
+.workshop-card:hover .workshop-img img{transform:scale(1.05);}
+.workshop-body{padding:1.4rem;display:flex;flex-direction:column;}
+.workshop-org{font-family:'DM Mono',monospace;font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:0.5rem;}
+.workshop-title{font-family:'DM Sans',sans-serif;font-weight:700;color:var(--text);font-size:0.93rem;margin-bottom:0.6rem;line-height:1.3;}
+.workshop-desc{color:var(--text2);font-size:0.83rem;line-height:1.7;}
+
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin:0 auto;}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:1.4rem;display:flex;gap:1.1rem;align-items:flex-start;transition:transform 0.3s ease,border-color 0.3s ease,box-shadow 0.3s ease;cursor:pointer;box-shadow:0 2px 10px rgba(160,130,100,0.05);}
+.cert-card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 8px 28px rgba(160,130,100,0.12);}
+.cert-details{display:flex;flex-direction:column;flex:1;}
+.cert-score{width:54px;height:54px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(201,146,58,0.07);}
+.cert-score-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.05rem;color:var(--gold);line-height:1;margin-right:2px;}
+.cert-score-pct{font-size:0.7rem;color:var(--gold);opacity:0.7;font-family:'DM Mono',monospace;}
+.cert-name{font-weight:700;color:var(--text);font-size:0.88rem;margin-bottom:0.28rem;line-height:1.3;font-family:'DM Sans',sans-serif;}
+.cert-provider{font-size:0.77rem;color:var(--muted);margin-bottom:0.4rem;}
+.cert-rank{font-size:0.75rem;color:var(--sage);font-weight:600;margin-bottom:0.4rem;display:flex;align-items:center;gap:0.3rem;font-family:'DM Mono',monospace;}
+.cert-verify{align-self:flex-end;font-size:0.88rem;color:var(--gold);font-family:'DM Sans',sans-serif;}
+
+#contact{background:var(--bg);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.contact-desc{font-size:1rem;color:var(--text2);line-height:1.9;margin-bottom:2rem;}
+.contact-links{display:flex;flex-direction:column;gap:0.8rem;}
+.contact-link{display:flex;align-items:center;gap:1rem;padding:0.9rem 1.1rem;border:1px solid var(--border);border-radius:var(--r);text-decoration:none;color:var(--text);background:var(--card);transition:all 0.25s;cursor:pointer;box-shadow:0 1px 6px rgba(160,130,100,0.05);}
+.contact-link:hover{border-color:var(--rose);background:var(--rose-dim);color:var(--rose);transform:translateX(4px);box-shadow:0 4px 16px rgba(196,118,90,0.12);}
+.contact-link-icon{width:40px;height:40px;border-radius:8px;padding:4px;background:rgba(196,118,90,0.08);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--rose);}
+.contact-link-label{font-size:0.67rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;font-family:'DM Mono',monospace;}
+.contact-link-val{font-size:0.86rem;font-weight:500;margin-top:0.1rem;}
+
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;position:relative;z-index:1;}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--text);font-size:1.1rem;}
+.footer-brand span{color:var(--rose);}
+.footer-copy{font-size:0.77rem;color:var(--muted);font-family:'DM Mono',monospace;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;transition:color 0.2s;font-family:'DM Sans',sans-serif;}
+.footer-links a:hover{color:var(--rose);}
+
+.pd-hero{background:var(--bg2);border-bottom:1px solid var(--border);padding:3rem 6% 2.5rem;position:relative;z-index:1;}
+.pd-back{display:inline-flex;align-items:center;gap:0.5rem;color:var(--text2);font-size:0.85rem;font-weight:500;cursor:pointer;border:none;background:none;padding:0;margin-bottom:2rem;transition:color 0.2s;font-family:'DM Sans',sans-serif;}
+.pd-back:hover{color:var(--rose);}
+.pd-back i{transition:transform 0.2s;}
+.pd-back:hover i{transform:translateX(-3px);}
+.pd-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;}
+.pd-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--text);letter-spacing:-0.02em;margin-bottom:0.8rem;line-height:1.15;}
+.pd-period{color:var(--muted);font-size:0.85rem;margin-bottom:2rem;font-family:'DM Mono',monospace;}
+.pd-box{display:flex;padding:3rem 6%;gap:2rem;}
+.pd-img-main{position:sticky;top:100px;width:100%;height:440px;border-radius:var(--r2);overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 20px rgba(160,130,100,0.1);}
+.pd-img-main img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.pd-body{max-width:800px;}
+.pd-section-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.35rem;color:var(--text);margin-bottom:1.1rem;margin-top:2.5rem;}
+.pd-section-title:first-child{margin-top:0;}
+.pd-text{color:var(--text2);line-height:1.9;font-size:0.97rem;margin-bottom:1rem;}
+.pd-text strong{color:var(--text);}
+.pd-metrics-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1rem;margin-bottom:2rem;}
+.pd-metric{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:1.2rem 1.4rem;}
+.pd-metric-val{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.6rem;color:var(--rose);}
+.pd-metric-label{font-size:0.72rem;color:var(--muted);margin-top:0.3rem;font-family:'DM Mono',monospace;}
+.pd-bullets{list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;}
+.pd-bullets li{color:var(--text2);font-size:0.95rem;line-height:1.7;padding-left:1.5rem;position:relative;}
+.pd-bullets li::before{content:'';position:absolute;left:0;top:0.65em;width:6px;height:6px;border-radius:50%;background:var(--rose);}
+.pd-bullets li strong{color:var(--text);}
+.pd-tool-row{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2rem;}
+.pd-github-btn{display:inline-flex;align-items:center;gap:0.6rem;background:var(--rose);color:var(--white);text-decoration:none;padding:0.85rem 2rem;border-radius:var(--r);font-weight:600;font-size:0.9rem;margin-top:1rem;transition:all 0.25s;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(196,118,90,0.22);}
+.pd-github-btn:hover{background:var(--rose2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,118,90,0.35);}
+
+.cert-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9999;}
+.cert-modal.active{display:flex;}
+.cert-modal-overlay{position:absolute;inset:0;background:rgba(46,33,24,0.6);backdrop-filter:blur(6px);}
+.cert-modal-content{position:relative;max-width:900px;width:90%;background:var(--card);border-radius:var(--r2);padding:1rem;z-index:2;animation:modalFade 0.3s ease;border:1px solid var(--border2);box-shadow:0 20px 60px rgba(160,130,100,0.2);}
+.cert-modal-content img{width:100%;border-radius:var(--r2);}
+.cert-close{position:absolute;top:-12px;right:-12px;width:36px;height:36px;border-radius:50%;border:none;background:var(--gold);color:#fff;font-weight:700;cursor:pointer;font-size:1rem;}
+@keyframes modalFade{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+
+.reveal,.reveal-left,.reveal-right{--reveal-transform:none;opacity:1;transform:var(--reveal-transform);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.anim{--reveal-transform:translateY(28px);}
+.reveal-left.anim{--reveal-transform:translateX(-28px);}
+.reveal-right.anim{--reveal-transform:translateX(28px);}
+.reveal.visible,.reveal-left.visible,.reveal-right.visible{opacity:1;--reveal-transform:none;}
+
+#experience,#education,#workshops{background:var(--bg2);}
+#skills,#projects,#certifications,#contact{background:var(--bg);}
+
+@media(max-width:1260px){.about-grid{grid-template-columns:1fr 380px;gap:3.5rem;}.pd-box{flex-direction:column;}.pd-body{order:1;}.pd-img-main{position:relative;top:0;}}
+@media(max-width:1024px){.exp-card{flex-direction:column;}.skills-layout{grid-template-columns:repeat(3,1fr);}.proj-grid{grid-template-columns:repeat(2,1fr);}.workshop-grid{grid-template-columns:repeat(2,1fr);}.cert-grid{grid-template-columns:1fr 1fr;}.exp-img{width:220px;}}
+@media(max-width:900px){.nav-links{display:none;}.hamburger{display:flex;}.about-grid{grid-template-columns:1fr;gap:3rem;}.about-img-wrap{width:70%;}.skills-layout{grid-template-columns:repeat(2,1fr);}.contact-grid{grid-template-columns:1fr;gap:0.8rem;}}
+@media(max-width:680px){section{padding:70px 5%;}.skills-layout{grid-template-columns:1fr;}.exp-card{flex-direction:column;gap:1rem;}.proj-grid{grid-template-columns:1fr;}.workshop-grid{grid-template-columns:1fr;}.hero-stats{gap:1.5rem;}.hero-stat-val{font-size:2rem;}.section-title{font-size:2rem;}footer{flex-direction:column;align-items:flex-start;gap:0.8rem;}h1.hero-name{font-size:clamp(2.8rem,10vw,3.8rem);}.cert-grid{grid-template-columns:1fr;}.pd-img-main{height:340px;}.about-img-wrap{width:100%;}.social-box{padding:0 1rem;}.hero-btns{flex-wrap:wrap;}}
+@media(max-width:420px){.hero-btns{flex-direction:column;}.btn-primary,.btn-outline,.btn-resume{text-align:center;}.workshop-grid{grid-template-columns:1fr;}.exp-card{flex-direction:column;gap:1.2rem;padding:1.5rem;}.exp-img{width:100%;height:220px;}.exp-meta{flex-direction:column;align-items:flex-start;}.exp-date{font-size:0.65rem;}}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#experience" onclick="toggleMenu()">Experience</a>
+  <a href="#skills" onclick="toggleMenu()">Skills</a>
+  <a href="#education" onclick="toggleMenu()">Education</a>
+  <a href="#projects" onclick="toggleMenu()">Projects</a>
+ <!-- <a href="#workshops" onclick="toggleMenu()">Training</a>  -->
+  <a href="#certifications" onclick="toggleMenu()">Certs</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#about" class="nav-logo">Poojitha</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+   <!-- <li><a href="#workshops">Training</a></li> -->
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home-page">
+
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal-left">
+      <div class="about-tag"><div class="pulse-dot"></div>Currently @ Capgemini</div>
+      <h1 class="hero-name">Poojitha<br><span class="line2">Mannava</span></h1>
+      <p class="hero-desc">Bridging the gap between raw data and meaningful insights, I build scalable, cloud-native data solutions from the ground up. As an AWS Data Engineer, I design and develop end-to-end ETL pipelines, build efficient data lakes and data warehouses, and leverage AWS services such as Amazon S3, AWS Glue, Amazon RDS, AWS Lambda, and PySpark to process, transform, and deliver high-quality data for analytics and business intelligence.    </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Get In Touch</a>
+        <a href="javascript:void(0)" onclick="openResume()" class="btn-resume"><i class="fa-regular fa-file-lines"></i> Resume</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hero-stat-val">2</div><div class="hero-stat-label">Internships</div></div>
+        <div><div class="hero-stat-val">3+</div><div class="hero-stat-label">Personal Projects</div></div>
+        <div><div class="hero-stat-val">8.9</div><div class="hero-stat-label">CGPA </div></div>
+      </div>
+    </div>
+    <div class="about-img-wrap reveal-right">
+      <div class="about-img-card">
+        <div class="profile-img">
+          <img src="images/projects/profile.jpeg" alt="Mannava Poojitha" loading="lazy"/>
+        </div>
+        <div class="lab-cards">
+          <div class="about-img-badge">
+            <img class="badge-img" src="images/projects/cap.jpg" alt="Capgemini"/>
+            <div class="badge-inner">
+              <div class="badge-title">Capgemini, <br>Bengaluru</div>
+              <div class="badge-sub">AWS Data Engineer</div>
+            </div>
+          </div>
+          <div class="about-img-badge">
+            <img class="badge-img" src="images/projects/ixyle.png" alt="IXYLE.AI"/>
+            <div class="badge-inner">
+              <div class="badge-title">IXYLE.AI<br>Remote</div>
+              <div class="badge-sub">Software Engineer</div>
+            </div>
+          </div>
+        </div>
+        <div class="social-box">
+          <a class="social-icon" href="mailto:mannavapoojitha3@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+          <a class="social-icon" href="https://github.com/mannavapoojitha3-jpg" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a class="social-icon" href="https://linkedin.com/in/poojitha-mannava/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-head reveal">
+    <div class="section-label">02 — Work</div>
+    <h2 class="section-title">Experience</h2>
+    <div class="divider"></div>
+  </div>
+    <div class="exp-timeline">
+    <div class="exp-card reveal">
+      <div class="exp-img-box"><img class="exp-img" src="images/projects/capgemini.jpeg" alt="Capgemini"/></div>
+      <div>
+        <div class="exp-meta">
+          <div class="exp-role">Capgemini</div>
+          <div class="exp-date">Sep 2025 – Present</div>
+        </div>
+        <div class="exp-org">Capgemini, Bengaluru</div>
+        <ul class="exp-bullets">
+          <li> Engineered cloud based ETL pipelines using AWS services for reliable data ingestion and transformations.</li>
+          <li> Contributed to an Azure to AWS data migration project,working on cloud-based data migration workflows and AWS data engineering processes.</li>
+          <li> Build GenAI applications and AI driven solution  using Langchain,Langgraph,RAG and LLMs,including chatbot and agent based applications.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-img-box"><img class="exp-img" src="images/projects/ixyle.jpeg" alt="IXYLE.AI"/></div>
+      <div>
+        <div class="exp-meta">
+          <div class="exp-role">Software Engineer – IXYLE.AI</div>
+          <div class="exp-date">Jul 2024 – Dec 2024</div>
+        </div>
+        <div class="exp-org">Remote</div>
+        <ul class="exp-bullets">
+          <li> Developed RESTful APIs using Java and Spring Boot for CRUD operations and backend application functionality.</li>
+          <li> Implemented PDF report generation using JasperReports, integrating JSON data sources to generate structured and optimized reports.</li> 
+          <li> Worked on backend data processing and application features, following clean coding practices, code reviews, and Agile development practices.</li>
+          <li> Collaborated with cross-functional teams to understand requirements, implement features, troubleshoot backend issues, and participate in code reviews following Agile development practices.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-img-box"><img class="exp-img" src="images/projects/rgukt.jpeg" alt="RGUKT Nuzvid"/></div>
+      <div>
+        <div class="exp-meta">
+          <div class="exp-role">Web Intern – RGUKT Nuzvid</div>
+          <div class="exp-date">Mar 2024 - May 2024</div>
+        </div>
+        <div class="exp-org">RGUKT Nuzvid, Andhra Pradesh</div>
+        <ul class="exp-bullets">
+          <li>Developed responsive web pages and application features using HTML, CSS, JavaScript, and PHP.</li>
+          <li>Implemented PHP-based backend functionality and integrated database operations to support dynamic web applications.</li>
+          <li>Worked on debugging, testing, and improving web application functionality while following clean development practices.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-head reveal">
+    <div class="section-label">03 — Expertise</div>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="skills-layout">
+    <div class="skill-card reveal">
+      <div class="skill-icon"><i class="fa-solid fa-cloud"></i></div>
+      <div class="skill-cat">Cloud & Data Engineering</div>
+      <div class="skill-pills"><span class="pill">AWS S3</span><span class="pill">AWS RDS</span><span class="pill">AWS Lambda</span><span class="pill">AWS Glue</span><span class="pill">AWS SNS</span><span class="pill">Apache Airflow</span><span class="pill">ETL / Data Pipelines</span><span class="pill">Cloud Migration</span></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+      <div class="skill-cat">Data & Programming</div>
+      <div class="skill-pills"><span class="pill">Python</span><span class="pill">SQL</span><span class="pill">PySpark</span><span class="pill">Databricks</span><span class="pill">Delta Lake</span><span class="pill">Medallion Architecture</span><span class="pill">SCD</span><span class="pill">MySQL</span><span class="pill">Apache Spark</span></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon"><i class="fa-solid fa-computer"></i></div>
+      <div class="skill-cat">AI & Modern Data Systems</div>
+      <div class="skill-pills"><span class="pill">LangChain</span><span class="pill">LangGraph</span><span class="pill">RAG</span><span class="pill">Vector Search</span><span class="pill">Amazon OpenSearch</span><span class="pill">Embeddings</span><span class="pill">LLM Applications</span><span class="pill">Model Context Protocol (MCP)</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-head reveal">
+    <div class="section-label">04 — Academic</div>
+    <h2 class="section-title">Education</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="exp-card reveal">
+    <div class="exp-img-box"><img class="exp-img" src="images/projects/rgukt_ong.jpg" alt="RGUKT"/></div>
+    <div>
+      <div class="edu-degree">B.Tech — Computer Science Engineering</div>
+      <div class="edu-uni">Rajiv Gandhi University of Knowledge Technologies (RGUKT AP IIIT)</div>
+      <div class="edu-loc"> Ongole, Andhra Pradesh, India</div>
+      <div class="edu-meta">
+        <div class="edu-badge cgpa"> CGPA: 8.9 </div>
+        <div class="edu-badge year"> 2020 – 2024 </div>
+      </div>
+      <div class="edu-courses"><strong>Relevant Coursework:</strong> Data Structures and Algortihms · Cloud Computing · Database Management System</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-label">05 — Work</div>
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub" style="margin-top:0.5rem">Click any project to explore the full technical details.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj-card reveal" onclick="openProject('rag')">
+        <div class="proj-img">
+          <img src="images/projects/yt-rag-thumb.png" alt="RAG Bot" loading="lazy"/>
+          <div class="proj-img-overlay"></div>
+          <div class="proj-img-badges"><span class="badge badge-cyan">RAG</span><span class="badge badge-blue">Python</span><span class="badge badge-gold">Langchain</span></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">YouTube RAG Assistant with LangGraph</div>
+          <div class="proj-desc">An AI-powered YouTube assistant that accepts a video URL, extracts its transcript, and uses RAG with FAISS vector search to answer questions based on the video content. LangGraph enables intelligent routing between Q&A, video summarization using Map-Reduce, and interactive quiz generation with scoring.</div>
+        <!--  <div class="proj-metrics">
+            <div><div class="proj-metric-val">100%</div><div class="proj-metric-label"></div></div>
+            <div><div class="proj-metric-val">0.119W</div><div class="proj-metric-label"></div></div>
+            <div><div class="proj-metric-val">Zero</div><div class="proj-metric-label"></div></div>
+          </div>
+        -->
+          <div class="proj-footer">
+            <div class="proj-view-btn">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+       <!--     <div class="proj-period">Sep–Dec 2025</div>  -->
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" onclick="openProject('aws_cost')">
+    <div class="proj-img">
+      <img src="images/projects/aws_cost.png" alt="AWS Cost Optimization" loading="lazy"/>
+      <div class="proj-img-overlay"></div>
+      <div class="proj-img-badges"><span class="badge badge-cyan">AWS</span><span class="badge badge-blue">Python</span><span class="badge badge-gold">Serverless</span></div>
+    </div>
+    <div class="proj-body">
+      <div class="proj-title">AWS Cost Optimization Automation using AWS Lambda</div>
+      <div class="proj-desc">A serverless AWS automation tool built with Python and Lambda that scans cloud resources to cut unnecessary costs. It deletes unattached EBS volumes, flags stopped EC2 instances, removes snapshots older than 30 days, and sends automated email reports via SNS, all triggered on a schedule through EventBridge.</div>
+    <!--  <div class="proj-metrics">
+        <div><div class="proj-metric-val">100%</div><div class="proj-metric-label"></div></div>
+        <div><div class="proj-metric-val">0.119W</div><div class="proj-metric-label"></div></div>
+        <div><div class="proj-metric-val">Zero</div><div class="proj-metric-label"></div></div>
+      </div>
+    -->
+      <div class="proj-footer">
+        <div class="proj-view-btn">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+   <!--     <div class="proj-period">Sep–Dec 2025</div>  -->
+      </div>
+    </div>
+  
+  </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<!--
+<section id="workshops">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-label">06 — Learning</div>
+      <h2 class="section-title">Workshops & Training</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="workshop-grid">
+      <div class="workshop-card reveal" onclick="openCertModal('images/projects/abc.jpeg')">
+        <div class="workshop-img"><img src="images/projects/ABC.png" alt="ABC" loading="lazy"/></div>
+        <div class="workshop-body">
+          <div class="workshop-org">CAPGEMINI Bangalore</div>
+          <div class="workshop-title"></div>
+          <div class="workshop-desc"></div>
+          <div class="cert-verify" style="margin-top:0.8rem">verify <i class="fa-regular fa-image"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-label">06 — Credentials</div>
+      <h2 class="section-title">Certifications</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card reveal" onclick="openCertModal('images/projects/aws_certified_cloud.jpeg')">
+        <!--<div class="cert-score"><div class="cert-score-num">91</div><div class="cert-score-pct">%</div></div> -->
+        <div class="cert-details">
+          <div class="cert-name">AWS Certified Cloud Practitioner</div>
+          <div class="cert-provider">AWS</div>
+          <!--<div class="cert-rank"></div>-->
+          <div class="cert-verify">verify <i class="fa-regular fa-image"></i></div>
+        </div>
+      </div>
+      <div class="cert-card reveal" onclick="openCertModal('images/projects/aws_certified_data.jpeg')">
+        <div class="cert-details">
+          <div class="cert-name">AWS Certified Data Engineer - Associate</div>
+          <div class="cert-provider">AWS</div>
+          <div class="cert-verify">verify <i class="fa-regular fa-image"></i></div>
+        </div>
+      </div>
+      <div class="cert-card reveal" onclick="openCertModal('images/projects/aws_certified_ai.jpeg')">
+        <div class="cert-details">
+          <div class="cert-name">AWS Certified AI Practitioner</div>
+          <div class="cert-provider">AWS</div>
+          <div class="cert-verify">verify <i class="fa-regular fa-image"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-label">07 — Connect</div>
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal-left">
+       <!-- <p class="contact-desc"><p> -->
+        <div class="contact-links">
+          <a href="mailto:mannavapoojitha3@gmail.com" class="contact-link" target="_blank">
+            <div class="contact-link-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div><div class="contact-link-label">Email</div><div class="contact-link-val">mannavapoojitha3@gmail.com</div></div>
+          </a>
+        <!--  <a href="tel:+91" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-solid fa-phone"></i></div>
+            <div><div class="contact-link-label">Phone</div><div class="contact-link-val">+91 </div></div>
+          </a>-->
+          <a class="contact-link" style="cursor:default">
+            <div class="contact-link-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div><div class="contact-link-label">Location</div><div class="contact-link-val">Guntur, Andhra Pradesh, India</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="reveal-left">
+        <div class="contact-links">
+          <a href="https://linkedin.com/in/poojitha-mannava/" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+            <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">linkedin.com/in/poojitha-mannava/</div></div>
+          </a>
+          <a href="https://github.com/mannavapoojitha3-jpg" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-brands fa-github"></i></div>
+            <div><div class="contact-link-label">GitHub</div><div class="contact-link-val">github.com/mannavapoojitha3-jpg</div></div>
+          </a>
+          <a href="javascript:void(0)" onclick="openResume()" class="contact-link">
+            <div class="contact-link-icon"><i class="fa-regular fa-file-lines"></i></div>
+            <div><div class="contact-link-label">Resume</div><div class="contact-link-val">View my full CV</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Poojitha<span>.</span></div>
+  <div class="footer-copy">© 2026 Poojitha Mannava · All Rights Reserved</div>
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/poojitha-mannava" target="_blank">LinkedIn</a>
+    <a href="https://github.com/mannavapoojitha3-jpg" target="_blank">GitHub</a>
+    <a href="mailto:mannavapoojitha3@gmail.com">Email</a>
+  </div>
+</footer>
+
+</div><!-- end #home-page -->
+
+<!-- PROJECT DETAIL PAGE -->
+<div id="project-page">
+  <div id="project-content"></div>
+</div>
+
+<!-- RESUME PAGE -->
+<div id="resume-page">
+  <div style="background:var(--bg2);border-bottom:1px solid var(--border);padding:2rem 6%;">
+    <button onclick="closeResume()" style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--text2);font-size:0.85rem;font-weight:500;cursor:pointer;border:none;background:none;padding:0;margin-bottom:1rem;transition:color 0.2s;font-family:'DM Sans',sans-serif;" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color='var(--text2)'">
+      <i class="fa-solid fa-chevron-left"></i>&nbsp; Back to Portfolio
+    </button>
+    <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--text);letter-spacing:-0.02em;">My Resume</div>
+    <div style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted);margin-top:0.3rem;">Mannava Poojitha · AWS Data Engineer</div>
+  </div>
+  <div style="padding:2rem 6%;height:calc(100vh - 140px);">
+    <iframe src="images/projects/Mannava_Poojitha_Resume.pdf" style="width:100%;height:100%;border:1px solid var(--border);border-radius:var(--r2);background:white;box-shadow:0 6px 28px rgba(160,130,100,0.13);" title="Resume"></iframe>
+  </div>
+</div>
+
+<!-- CERT MODAL -->
+<div class="cert-modal" id="certModal">
+  <div class="cert-modal-overlay" onclick="closeCertModal()"></div>
+  <div class="cert-modal-content">
+    <button class="cert-close" onclick="closeCertModal()">✕</button>
+    <img id="certModalImg" src="" alt="Certificate"/>
+  </div>
+</div>
+
+<script>
+const projects = {
+  rag: {
+    title: 'YouTube RAG Assistant with LangGraph',
+    period: 'Sep 2025 – Nov 2025',
+    image: 'images/projects/yt-rag.jpeg',
+    badges: ['Python', 'RAG', 'LangChain'],
+    tools: ['Python', 'LangGraph', 'LangChain', 'FAISS', 'Hugging Face', 'OpenAI', 'RAG', 'Map-Reduce'],
+    github: 'https://github.com/mannavapoojitha3-jpg',
+    overview: 'An AI-powered YouTube assistant that accepts a video URL, extracts its transcript, and uses RAG with FAISS vector search to answer questions grounded in the video content. LangGraph orchestrates separate workflows for Q&A, long-video summarization, and interactive quiz generation.',
+    metrics: [{val:'4',label:'Map Reduces'},{val:'3',label:'AI workflows'},{val:'Top 3',label:'chunks'}],
+    details: [
+      '<strong>YouTube RAG:</strong> Built a transcript-based Q&A system that accepts YouTube URLs, generates semantic embeddings using Hugging Face, and performs similarity search with FAISS to provide context-grounded answers.',
+      '<strong>LangGraph Routing:</strong>  Implemented intent-based routing between Q&A, long-video summarization, and interactive quiz workflows using a stateful LangGraph architecture.',
+      '<strong>Map-Reduce Summarization:</strong> Designed hierarchical Map-Reduce processing to summarize long transcripts through token-aware batching and recursive summary reduction.',
+      '<strong>Interactive Quiz:</strong> Developed an LLM-powered MCQ generator with structured JSON validation, randomized transcript chunks, answer evaluation, and score tracking.'
+    ]
+  },
+  aws_cost: {
+    title: 'AWS Cost Optimization Automation using AWS Lambda',
+    period: 'Jan 2026 – Feb 2026',
+    image: 'images/projects/aws_cost.png',
+    badges: ['Python', 'AWS', 'Serverless'],
+    tools: ['Python', 'boto3', 'AWS Lambda', 'Amazon EC2', 'Amazon EBS', 'Amazon EventBridge', 'Amazon SNS', 'Amazon CloudWatch', 'IAM'],
+    github: 'https://github.com/mannavapoojitha3-jpg',
+    overview: 'A serverless AWS cost optimization tool built with Python and AWS Lambda that automatically scans cloud resources to identify and clean up waste. It deletes unattached EBS volumes, flags stopped EC2 instances, removes EBS snapshots older than 30 days, and sends automated email reports via SNS, all triggered on a schedule through EventBridge with no manual intervention.',
+    metrics: [{val:'3',label:'Resource types cleaned'},{val:'30-day',label:'Snapshot threshold'},{val:'100%',label:'Automated execution'}],
+    details: [
+      '<strong>EBS Volume Cleanup:</strong> Automated detection and deletion of unattached Amazon EBS volumes to eliminate unnecessary storage costs.',
+      '<strong>EC2 Instance Detection:</strong> Scans and identifies stopped Amazon EC2 instances that continue to incur associated resource costs.',
+      '<strong>Snapshot Lifecycle Management:</strong> Automatically deletes EBS snapshots older than 30 days, reducing long-term storage overhead.',
+      '<strong>Scheduled Automation & Alerts:</strong> Uses Amazon EventBridge to trigger the Lambda function on a schedule, logs every execution to CloudWatch, and sends email notifications of cleanup results via Amazon SNS.'
+    ]
+  }
+};
+
+function openProject(id) {
+  const p = projects[id];
+  if (!p) return;
+  const badgesHtml  = p.badges.map(b => `<span class="badge badge-cyan">${b}</span>`).join('');
+  const toolsHtml   = p.tools.map(t => `<span class="pill">${t}</span>`).join('');
+  const metricsHtml = p.metrics.map(m => `<div class="pd-metric"><div class="pd-metric-val">${m.val}</div><div class="pd-metric-label">${m.label}</div></div>`).join('');
+  const detailsHtml = p.details.map(d => `<li>${d}</li>`).join('');
+  document.getElementById('project-content').innerHTML = `
+    <div class="pd-hero">
+      <button class="pd-back" onclick="closeProject()"><i class="fa-solid fa-chevron-left"></i> Back to Portfolio</button>
+      <div class="pd-badges">${badgesHtml}</div>
+      <div class="pd-title">${p.title}</div>
+    </div>
+    <div class="pd-box">
+      <div class="pd-body">
+        <div class="pd-section-title">Overview</div>
+        <p class="pd-text">${p.overview}</p>
+        <div class="pd-section-title">Key Metrics</div>
+        <div class="pd-metrics-row">${metricsHtml}</div>
+        <div class="pd-section-title">Technical Deep Dive</div>
+        <ul class="pd-bullets">${detailsHtml}</ul>
+        <div class="pd-section-title">Tools & Technologies</div>
+        <div class="pd-tool-row">${toolsHtml}</div>
+        <a href="${p.github}" target="_blank" class="pd-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="pd-img-main"><img src="${p.image}" alt="${p.title}" loading="lazy"/></div>
+    </div>`;
+  document.getElementById('home-page').style.display = 'none';
+  document.getElementById('resume-page').style.display = 'none';
+  const pp = document.getElementById('project-page');
+  pp.style.display = 'block';
+  pp.scrollTop = 0;
+  window.scrollTo(0, 0);
+}
+
+function closeProject() {
+  document.getElementById('project-page').style.display = 'none';
+  document.getElementById('home-page').style.display = 'block';
+  setTimeout(() => document.getElementById('projects').scrollIntoView({behavior:'smooth'}), 100);
+}
+
+function openResume() {
+  document.getElementById('home-page').style.display = 'none';
+  document.getElementById('project-page').style.display = 'none';
+  document.getElementById('resume-page').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function closeResume() {
+  document.getElementById('resume-page').style.display = 'none';
+  document.getElementById('home-page').style.display = 'block';
+}
+
+function openCertModal(imgSrc) {
+  document.getElementById('certModalImg').src = imgSrc;
+  document.getElementById('certModal').classList.add('active');
+}
+
+function closeCertModal() {
+  document.getElementById('certModal').classList.remove('active');
+}
+
+const revEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+revEls.forEach(el => el.classList.add('anim'));
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => { e.target.classList.add('visible'); e.target.classList.remove('anim'); }, i * 80);
+      obs.unobserve(e.target);
+    }
+  });
+}, {threshold:0.05, rootMargin:'0px 0px -20px 0px'});
+revEls.forEach(el => obs.observe(el));
+
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  navLinks.forEach(a => {
+    const href = a.getAttribute('href').slice(1);
+    a.classList.toggle('active', href === cur);
+  });
+});
+
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+</body>
+</html>
