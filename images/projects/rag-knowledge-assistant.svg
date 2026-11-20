@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#faf6f0"/><stop offset="1" stop-color="#f5efe6"/></linearGradient><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6b5242"/></marker></defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<text x="60" y="90" font-family="Georgia,serif" font-size="46" font-weight="600" fill="#2e2118">RAG Knowledge Assistant</text>
+<text x="60" y="130" font-family="Helvetica,Arial,sans-serif" font-size="22" fill="#6b5242">Documents → vector index → LLM agent, deployed on AWS SageMaker</text>
+<rect x="60.0" y="290" width="184.0" height="170" rx="16" fill="#fefcf8" stroke="#7a9e87" stroke-width="3"/>
+<rect x="60.0" y="290" width="184.0" height="12" rx="6" fill="#7a9e87"/>
+<text x="152.0" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#2e2118">Ingest</text>
+<text x="152.0" y="398" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#6b5242">LlamaIndex loaders</text>
+<line x1="250.0" y1="375.0" x2="276.0" y2="375.0" stroke="#6b5242" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="284.0" y="290" width="184.0" height="170" rx="16" fill="#fefcf8" stroke="#c9923a" stroke-width="3"/>
+<rect x="284.0" y="290" width="184.0" height="12" rx="6" fill="#c9923a"/>
+<text x="376.0" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#2e2118">Index</text>
+<text x="376.0" y="398" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#6b5242">FAISS vector store</text>
+<line x1="474.0" y1="375.0" x2="500.0" y2="375.0" stroke="#6b5242" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="508.0" y="290" width="184.0" height="170" rx="16" fill="#fefcf8" stroke="#c4765a" stroke-width="3"/>
+<rect x="508.0" y="290" width="184.0" height="12" rx="6" fill="#c4765a"/>
+<text x="600.0" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#2e2118">Retrieve</text>
+<text x="600.0" y="398" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#6b5242">Top-k relevant chunks</text>
+<line x1="698.0" y1="375.0" x2="724.0" y2="375.0" stroke="#6b5242" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="732.0" y="290" width="184.0" height="170" rx="16" fill="#fefcf8" stroke="#b57d28" stroke-width="3"/>
+<rect x="732.0" y="290" width="184.0" height="12" rx="6" fill="#b57d28"/>
+<text x="824.0" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#2e2118">Agent</text>
+<text x="824.0" y="398" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#6b5242">LangChain + LLM</text>
+<line x1="922.0" y1="375.0" x2="948.0" y2="375.0" stroke="#6b5242" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="956.0" y="290" width="184.0" height="170" rx="16" fill="#fefcf8" stroke="#6b8f78" stroke-width="3"/>
+<rect x="956.0" y="290" width="184.0" height="12" rx="6" fill="#6b8f78"/>
+<text x="1048.0" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#2e2118">Serve</text>
+<text x="1048.0" y="398" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#6b5242">AWS SageMaker endpoint</text>
+<text x="60" y="560" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#a08878">Illustrative architecture diagram</text>
+</svg>
