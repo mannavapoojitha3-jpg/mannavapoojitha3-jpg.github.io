@@ -733,6 +733,7 @@ const projects = {
  title: 'AI Policy Chatbot',
  period: '2025 – Present',
  image: 'images/projects/ai-policy-chatbot.png',
+ fit: 'object-fit:contain;background:#0b1230;',
  badges: ['LLM', 'GenAI', 'HR'],
  tools: ['LLMs', 'GenAI platforms', 'RAG', 'Prompt Engineering'],
  github: '',
@@ -747,6 +748,7 @@ const projects = {
  title: 'RAG-Powered Knowledge Assistant',
  period: '2025',
  image: 'images/projects/rag-knowledge-assistant.png',
+ fit: 'object-fit:contain;background:#0b1230;',
  badges: ['RAG', 'LlamaIndex', 'SageMaker'],
  tools: ['LlamaIndex', 'FAISS', 'LangChain', 'AWS SageMaker', 'RAG'],
  github: '',
@@ -788,7 +790,7 @@ function openProject(id) {
           View on GitHub
         </a>` : ''}
       </div>
-      <div class="pd-img-main"><img src="${p.image}" alt="${p.title}" loading="lazy"/></div>
+      <div class="pd-img-main"><img src="${p.image}" alt="${p.title}" loading="lazy" style="${p.fit || ''}"/></div>
     </div>`;
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('resume-page').style.display = 'none';
