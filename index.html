@@ -322,7 +322,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem 6%;
             <img class="badge-img" src="images/projects/cap.jpg" alt="Capgemini"/>
             <div class="badge-inner">
               <div class="badge-title">Capgemini, <br>Bengaluru</div>
-              <div class="badge-sub">AWS Data Engineer</div>
+              <div class="badge-sub">AI Engineer</div>
             </div>
           </div>
           <div class="about-img-badge">
@@ -354,14 +354,18 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem 6%;
       <div class="exp-img-box"><img class="exp-img" src="images/projects/capgemini.jpeg" alt="Capgemini"/></div>
       <div>
         <div class="exp-meta">
-          <div class="exp-role">Capgemini</div>
+          <div class="exp-role">AI Engineer – Capgemini</div>
           <div class="exp-date">Sep 2025 – Present</div>
         </div>
         <div class="exp-org">Capgemini, Bengaluru</div>
         <ul class="exp-bullets">
-          <li> Engineered cloud based ETL pipelines using AWS services for reliable data ingestion and transformations.</li>
-          <li> Contributed to an Azure to AWS data migration project,working on cloud-based data migration workflows and AWS data engineering processes.</li>
-          <li> Build GenAI applications and AI-driven solutions using LangChain, LangGraph, RAG, and LLMs, including chatbot and agent-based applications.</li>
+          <li>Designed and implemented AI pipelines using LLM and GenAI platforms to solve business problems in software and engineering processes.</li>
+          <li>Fine-tuned Large Language Models, improving response accuracy by 25% and reducing latency by 30% through optimized prompt engineering and RAG techniques.</li>
+          <li>Conducted experiments with various models and algorithms to optimize LLM and RAG performance, choosing the best-suited solution for each use case.</li>
+          <li>Built GenAI chatbot and agent-based applications using LangChain, LangGraph, RAG, and LLMs.</li>
+          <li>Engineered cloud-based ETL pipelines using AWS services (S3, Glue, Lambda) for reliable data ingestion and transformation.</li>
+          <li>Contributed to an Azure to AWS data migration project, working on cloud-based migration workflows.</li>
+          <li>Built automated anomaly detection using ML, cutting diagnostic man-hours by 90% and improving system reliability.</li>
         </ul>
       </div>
     </div>
@@ -454,6 +458,36 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem 6%;
       <div class="divider"></div>
     </div>
     <div class="proj-grid">
+
+      <div class="proj-card reveal" onclick="openProject('ai_policy')">
+        <div class="proj-img" style="background:linear-gradient(135deg,#c4765a,#c9923a);min-height:180px;display:flex;align-items:center;justify-content:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#fefcf8;font-weight:600;padding:0 1rem;text-align:center;">AI Policy Chatbot</div>
+          <div class="proj-img-overlay"></div>
+          <div class="proj-img-badges"><span class="badge LLM">badge-cyan</span><span class="badge GenAI">badge-blue</span><span class="badge HR">badge-gold</span></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">AI Policy Chatbot</div>
+          <div class="proj-desc">A GenAI chatbot for HR platforms that answers policy questions using large language models, with models and retrieval methods tuned for each use case.</div>
+          <div class="proj-footer">
+            <div class="proj-view-btn">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" onclick="openProject('rag_kb')">
+        <div class="proj-img" style="background:linear-gradient(135deg,#7a9e87,#c9923a);min-height:180px;display:flex;align-items:center;justify-content:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#fefcf8;font-weight:600;padding:0 1rem;text-align:center;">RAG-Powered Knowledge Assistant</div>
+          <div class="proj-img-overlay"></div>
+          <div class="proj-img-badges"><span class="badge RAG">badge-cyan</span><span class="badge LlamaIndex">badge-blue</span><span class="badge SageMaker">badge-gold</span></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">RAG-Powered Knowledge Assistant</div>
+          <div class="proj-desc">A Retrieval-Augmented Generation system built with LlamaIndex and FAISS, deployed on AWS SageMaker with a LangChain-based agent for dynamic knowledge retrieval.</div>
+          <div class="proj-footer">
+            <div class="proj-view-btn">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </div>
 
       <div class="proj-card reveal" onclick="openProject('rag')">
         <div class="proj-img">
@@ -558,6 +592,18 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem 6%;
           <div class="cert-name">AWS Certified AI Practitioner</div>
           <div class="cert-provider">AWS</div>
           <div class="cert-verify">verify <i class="fa-regular fa-image"></i></div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-details">
+          <div class="cert-name">Claude Certified Associate</div>
+          <div class="cert-provider">Anthropic</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-details">
+          <div class="cert-name">Claude Certified Developer</div>
+          <div class="cert-provider">Anthropic</div>
         </div>
       </div>
     </div>
@@ -682,7 +728,36 @@ const projects = {
       '<strong>Snapshot Lifecycle Management:</strong> Automatically deletes EBS snapshots older than 30 days, reducing long-term storage overhead.',
       '<strong>Scheduled Automation & Alerts:</strong> Uses Amazon EventBridge to trigger the Lambda function on a schedule, logs every execution to CloudWatch, and sends email notifications of cleanup results via Amazon SNS.'
     ]
-  }
+  },
+ ai_policy: {
+ title: 'AI Policy Chatbot',
+ period: '2025 – Present',
+ image: '',
+ badges: ['LLM', 'GenAI', 'HR'],
+ tools: ['LLMs', 'GenAI platforms', 'RAG', 'Prompt Engineering'],
+ github: 'https://github.com/mannavapoojitha3-jpg',
+ overview: 'A GenAI chatbot built for HR platforms that answers policy questions using large language models. Models and retrieval methods were benchmarked to find the best-suited solution for each use case.',
+ metrics: [],
+ details: [
+ ' Chatbot Design: Designed and implemented an AI chatbot using LLM and GenAI platforms to solve business problems on HR platforms.',
+ ' Model Experiments: Ran experiments across models and algorithms to optimize LLM and RAG performance.'
+ ]
+ },
+ rag_kb: {
+ title: 'RAG-Powered Knowledge Assistant',
+ period: '2025',
+ image: '',
+ badges: ['RAG', 'LlamaIndex', 'SageMaker'],
+ tools: ['LlamaIndex', 'FAISS', 'LangChain', 'AWS SageMaker', 'RAG'],
+ github: 'https://github.com/mannavapoojitha3-jpg',
+ overview: 'A Retrieval-Augmented Generation system that answers questions over domain documents. It uses LlamaIndex and FAISS for retrieval and runs on AWS SageMaker with a LangChain-based agent.',
+ metrics: [{val:'35%',label:'Accuracy gain on domain queries'}],
+ details: [
+ ' RAG Pipeline: Built a retrieval system with LlamaIndex and FAISS that improved LLM accuracy by 35% on domain-specific queries.',
+ ' Deployment: Deployed the system on AWS SageMaker.',
+ ' Agent Retrieval: Used a LangChain-based agent for dynamic knowledge retrieval.'
+ ]
+ }
 };
 
 function openProject(id) {
