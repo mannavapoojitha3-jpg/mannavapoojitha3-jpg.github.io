@@ -1,28 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
 <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14204a"/><stop offset="1" stop-color="#0b1230"/></linearGradient><marker id="arr" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#e8ecf7"/></marker></defs>
-<rect width="1200" height="675" fill="url(#bg)"/>
-<text x="600" y="250" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" fill="#cfd6e6">Employee question → answer grounded in HR policy documents</text>
-<rect x="50.0" y="300" width="248.0" height="200" rx="18" fill="#ffffff" fill-opacity="0.07" stroke="#c4765a" stroke-width="3"/>
-<circle cx="174.0" cy="352" r="26" fill="#c4765a"/>
-<text x="174.0" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#0b1230">1</text>
-<text x="174.0" y="420" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#ffffff">Question</text>
-<text x="174.0" y="458" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#cfd6e6">Employee asks</text>
-<line x1="304.0" y1="400.0" x2="324.0" y2="400.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
-<rect x="334.0" y="300" width="248.0" height="200" rx="18" fill="#ffffff" fill-opacity="0.07" stroke="#c9923a" stroke-width="3"/>
-<circle cx="458.0" cy="352" r="26" fill="#c9923a"/>
-<text x="458.0" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#0b1230">2</text>
-<text x="458.0" y="420" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#ffffff">Retrieve</text>
-<text x="458.0" y="458" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#cfd6e6">Find policy text</text>
-<line x1="588.0" y1="400.0" x2="608.0" y2="400.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
-<rect x="618.0" y="300" width="248.0" height="200" rx="18" fill="#ffffff" fill-opacity="0.07" stroke="#7a9e87" stroke-width="3"/>
-<circle cx="742.0" cy="352" r="26" fill="#7a9e87"/>
-<text x="742.0" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#0b1230">3</text>
-<text x="742.0" y="420" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#ffffff">LLM</text>
-<text x="742.0" y="458" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#cfd6e6">Draft grounded answer</text>
-<line x1="872.0" y1="400.0" x2="892.0" y2="400.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
-<rect x="902.0" y="300" width="248.0" height="200" rx="18" fill="#ffffff" fill-opacity="0.07" stroke="#e0a27f" stroke-width="3"/>
-<circle cx="1026.0" cy="352" r="26" fill="#e0a27f"/>
-<text x="1026.0" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#0b1230">4</text>
-<text x="1026.0" y="420" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#ffffff">Answer</text>
-<text x="1026.0" y="458" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#cfd6e6">Reply with source</text>
+<rect width="1200" height="600" fill="url(#bg)"/>
+<text x="60" y="120" font-family="Georgia,serif" font-size="52" font-weight="600" fill="#ffffff">AI Policy Chatbot</text>
+<text x="60" y="165" font-family="Helvetica,Arial,sans-serif" font-size="24" fill="#cfd6e6">Employee questions answered from HR policy documents</text>
+<rect x="60.0" y="225" width="244.5" height="200" rx="18" fill="#ffffff" fill-opacity="0.08" stroke="#c4765a" stroke-width="3"/>
+<circle cx="182.2" cy="271" r="22" fill="#c4765a"/>
+<text x="182.2" y="278" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#0b1230">1</text>
+<text x="182.2" y="337" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">Question</text>
+<text x="182.2" y="375" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="19" fill="#cfd6e6">Employee asks</text>
+<line x1="310.5" y1="325.0" x2="328.5" y2="325.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="338.5" y="225" width="244.5" height="200" rx="18" fill="#ffffff" fill-opacity="0.08" stroke="#c9923a" stroke-width="3"/>
+<circle cx="460.8" cy="271" r="22" fill="#c9923a"/>
+<text x="460.8" y="278" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#0b1230">2</text>
+<text x="460.8" y="337" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">Retrieve</text>
+<text x="460.8" y="375" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="19" fill="#cfd6e6">Find policy text</text>
+<line x1="589.0" y1="325.0" x2="607.0" y2="325.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="617.0" y="225" width="244.5" height="200" rx="18" fill="#ffffff" fill-opacity="0.08" stroke="#7a9e87" stroke-width="3"/>
+<circle cx="739.2" cy="271" r="22" fill="#7a9e87"/>
+<text x="739.2" y="278" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#0b1230">3</text>
+<text x="739.2" y="337" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">LLM</text>
+<text x="739.2" y="375" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="19" fill="#cfd6e6">Draft grounded answer</text>
+<line x1="867.5" y1="325.0" x2="885.5" y2="325.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="895.5" y="225" width="244.5" height="200" rx="18" fill="#ffffff" fill-opacity="0.08" stroke="#e0a27f" stroke-width="3"/>
+<circle cx="1017.8" cy="271" r="22" fill="#e0a27f"/>
+<text x="1017.8" y="278" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#0b1230">4</text>
+<text x="1017.8" y="337" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">Answer</text>
+<text x="1017.8" y="375" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="19" fill="#cfd6e6">Reply with source</text>
 </svg>

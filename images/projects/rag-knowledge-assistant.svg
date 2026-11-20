@@ -1,34 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
 <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14204a"/><stop offset="1" stop-color="#0b1230"/></linearGradient><marker id="arr" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#e8ecf7"/></marker></defs>
-<rect width="1200" height="675" fill="url(#bg)"/>
-<text x="600" y="250" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" fill="#cfd6e6">Documents → vector index → LLM agent, served on AWS SageMaker</text>
-<rect x="50.0" y="300" width="191.2" height="200" rx="18" fill="#ffffff" fill-opacity="0.07" stroke="#7a9e87" stroke-width="3"/>
-<circle cx="145.6" cy="352" r="26" fill="#7a9e87"/>
-<text x="145.6" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#0b1230">1</text>
-<text x="145.6" y="420" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#ffffff">Ingest</text>
-<text x="145.6" y="458" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#cfd6e6">LlamaIndex loaders</text>
-<line x1="247.2" y1="400.0" x2="267.2" y2="400.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
-<rect x="277.2" y="300" width="191.2" height="200" rx="18" fill="#ffffff" fill-opacity="0.07" stroke="#c9923a" stroke-width="3"/>
-<circle cx="372.8" cy="352" r="26" fill="#c9923a"/>
-<text x="372.8" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#0b1230">2</text>
-<text x="372.8" y="420" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#ffffff">Index</text>
-<text x="372.8" y="458" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#cfd6e6">FAISS vector store</text>
-<line x1="474.4" y1="400.0" x2="494.4" y2="400.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
-<rect x="504.4" y="300" width="191.2" height="200" rx="18" fill="#ffffff" fill-opacity="0.07" stroke="#c4765a" stroke-width="3"/>
-<circle cx="600.0" cy="352" r="26" fill="#c4765a"/>
-<text x="600.0" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#0b1230">3</text>
-<text x="600.0" y="420" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#ffffff">Retrieve</text>
-<text x="600.0" y="458" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#cfd6e6">Top-k chunks</text>
-<line x1="701.6" y1="400.0" x2="721.6" y2="400.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
-<rect x="731.6" y="300" width="191.2" height="200" rx="18" fill="#ffffff" fill-opacity="0.07" stroke="#e0a27f" stroke-width="3"/>
-<circle cx="827.2" cy="352" r="26" fill="#e0a27f"/>
-<text x="827.2" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#0b1230">4</text>
-<text x="827.2" y="420" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#ffffff">Agent</text>
-<text x="827.2" y="458" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#cfd6e6">LangChain + LLM</text>
-<line x1="928.8" y1="400.0" x2="948.8" y2="400.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
-<rect x="958.8" y="300" width="191.2" height="200" rx="18" fill="#ffffff" fill-opacity="0.07" stroke="#9bbfa9" stroke-width="3"/>
-<circle cx="1054.4" cy="352" r="26" fill="#9bbfa9"/>
-<text x="1054.4" y="360" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#0b1230">5</text>
-<text x="1054.4" y="420" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#ffffff">Serve</text>
-<text x="1054.4" y="458" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="18" fill="#cfd6e6">SageMaker endpoint</text>
+<rect width="1200" height="600" fill="url(#bg)"/>
+<text x="60" y="120" font-family="Georgia,serif" font-size="52" font-weight="600" fill="#ffffff">RAG Knowledge Assistant</text>
+<text x="60" y="165" font-family="Helvetica,Arial,sans-serif" font-size="24" fill="#cfd6e6">Documents indexed in FAISS, answered by a LangChain agent on AWS SageMaker</text>
+<rect x="60.0" y="225" width="188.8" height="200" rx="18" fill="#ffffff" fill-opacity="0.08" stroke="#7a9e87" stroke-width="3"/>
+<circle cx="154.4" cy="271" r="22" fill="#7a9e87"/>
+<text x="154.4" y="278" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#0b1230">1</text>
+<text x="154.4" y="337" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">Ingest</text>
+<text x="154.4" y="375" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="19" fill="#cfd6e6">LlamaIndex loaders</text>
+<line x1="254.8" y1="325.0" x2="272.8" y2="325.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="282.8" y="225" width="188.8" height="200" rx="18" fill="#ffffff" fill-opacity="0.08" stroke="#c9923a" stroke-width="3"/>
+<circle cx="377.2" cy="271" r="22" fill="#c9923a"/>
+<text x="377.2" y="278" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#0b1230">2</text>
+<text x="377.2" y="337" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">Index</text>
+<text x="377.2" y="375" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="19" fill="#cfd6e6">FAISS vector store</text>
+<line x1="477.6" y1="325.0" x2="495.6" y2="325.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="505.6" y="225" width="188.8" height="200" rx="18" fill="#ffffff" fill-opacity="0.08" stroke="#c4765a" stroke-width="3"/>
+<circle cx="600.0" cy="271" r="22" fill="#c4765a"/>
+<text x="600.0" y="278" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#0b1230">3</text>
+<text x="600.0" y="337" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">Retrieve</text>
+<text x="600.0" y="375" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="19" fill="#cfd6e6">Top-k chunks</text>
+<line x1="700.4" y1="325.0" x2="718.4" y2="325.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="728.4" y="225" width="188.8" height="200" rx="18" fill="#ffffff" fill-opacity="0.08" stroke="#e0a27f" stroke-width="3"/>
+<circle cx="822.8" cy="271" r="22" fill="#e0a27f"/>
+<text x="822.8" y="278" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#0b1230">4</text>
+<text x="822.8" y="337" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">Agent</text>
+<text x="822.8" y="375" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="19" fill="#cfd6e6">LangChain + LLM</text>
+<line x1="923.2" y1="325.0" x2="941.2" y2="325.0" stroke="#e8ecf7" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="951.2" y="225" width="188.8" height="200" rx="18" fill="#ffffff" fill-opacity="0.08" stroke="#9bbfa9" stroke-width="3"/>
+<circle cx="1045.6" cy="271" r="22" fill="#9bbfa9"/>
+<text x="1045.6" y="278" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#0b1230">5</text>
+<text x="1045.6" y="337" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#ffffff">Serve</text>
+<text x="1045.6" y="375" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="19" fill="#cfd6e6">SageMaker endpoint</text>
 </svg>
